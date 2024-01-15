@@ -3,7 +3,9 @@ services:
   - docker
 
 before_install:
+  # build image for dev
   - docker build -t mchiuminatto/docker-react -f Dockerfile.dev .
 
 script:
+  # run tests
   - docker run -e CI-true mchiuminatto/docker-react npm run test
